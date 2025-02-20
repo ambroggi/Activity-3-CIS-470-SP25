@@ -100,3 +100,55 @@ describe('classifyTriangle: Boundary tests', () => {
     expect(classifyTriangle(10, 10, 200.00001)).toBe('Error: Input conditions C1, C2, or C3 failed.');
   });
 });
+
+
+describe('classifyTriangle: Equivalence classes', () => {
+  test('should classify an Equilateral triangle', () => {
+    expect(classifyTriangle(10, 10, 10)).toBe('Equilateral');
+  });
+
+  test('should classify Not Equilateral triangle', () => {
+    expect(classifyTriangle(10, 10, 9)).not.toBe('Equilateral');
+  });
+
+  test('should classify Not Equilateral triangle', () => {
+    expect(classifyTriangle(10, 11, 10)).not.toBe('Equilateral');
+  });
+
+  test('should classify an Isosceles triangle', () => {
+    expect(classifyTriangle(5, 10, 10)).toBe('Isosceles');
+  });
+
+  test('should classify Not Isosceles triangle', () => {
+    expect(classifyTriangle(10, 10, 10)).not.toBe('Isosceles');
+  });
+
+  test('should classify Not Isosceles triangle', () => {
+    expect(classifyTriangle(5, 10, 7)).not.toBe('Isosceles');
+  });
+
+
+  test('should classify an Scalene triangle', () => {
+    expect(classifyTriangle(3, 5, 7)).toBe('Scalene');
+  });
+
+  test('should classify not Scalene triangle', () => {
+    expect(classifyTriangle(3, 5, 13)).not.toBe('Scalene');
+  });
+
+  test('should classify not Scalene triangle', () => {
+    expect(classifyTriangle(5, 5, 7)).not.toBe('Scalene');
+  });
+
+  test('should classify an "Not a Triangle"', () => {
+    expect(classifyTriangle(2, 3, 7)).toBe('Not a Triangle');
+  });
+
+  test('should classify not "Not a Triangle"', () => {
+    expect(classifyTriangle(3, 5, 7)).not.toBe('Not a Triangle');
+  });
+
+  test('should classify not "Not a Triangle"', () => {
+    expect(classifyTriangle(0, 1, 2)).not.toBe('Not a Triangle');
+  });
+});
